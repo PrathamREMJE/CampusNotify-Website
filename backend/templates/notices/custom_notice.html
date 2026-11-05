@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Custom Notice</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 0.2cm;
+    }
+
+    .notice-body {
+        page-break-inside: auto;
+    }
+    * { padding: 0; margin: 0; box-sizing: border-box; }
+    body { font-family: Arial, 'Segoe UI', Tahoma, sans-serif; font-size: 14px; color: #333; background: white; }
+    h1, h2, h3, h4, h5, h6, p, ul, ol, li, th, td { font-family: "Times New Roman", Times, serif; }
+    h1, h2, h3 { font-weight: bold; }
+    em, i { font-style: italic; }
+    h1, h2 { text-align: center; margin: 6px 0; }
+
+    .page-header {
+      position: relative;
+      page-break-after: avoid;
+      page-break-inside: avoid;
+      margin-bottom: 10px;
+    }
+
+    .page-header.main-header {
+      page-break-after: avoid;
+    }
+
+    .page-header:not(:first-of-type) {
+      margin-top: 20px;
+      padding-top: 15px;
+      border-top: 3px solid #2c377d;
+    }
+
+    .container {
+            width: 100%;
+            /max-width: 800px;/
+            margin: 0 auto;
+            background: #ffffff ;
+            padding: 0;
+        }
+    .header { text-align: center; padding: 0; }
+    .header img { width: 110px; height: auto; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto; }
+    .main-title { color: #2c377d; font-size: 20px; font-weight: bold; }
+    .subtitle { color: #2c377d; font-size: 16px; font-weight: 600; margin-bottom: 5px; font-family: 'Tafel Sans Pro', Arial, sans-serif; }
+    .empowering { font-size: 17px; font-style: italic; color: #ffbc13; margin-top: 3px; padding: 5px; }
+    .info-bar { font-weight: 600; color: #2c377d; padding: 9px 0; font-size: 14px; display: flex; justify-content: center; align-items: center; width: 100%; }
+    .award { margin-left:40px; }
+
+    .principal-row { display: flex; gap: 10px; align-items: flex-start; border-top: 2px solid black; border-bottom: 2px solid black; padding: 5px 0; width: 100%; box-sizing: border-box; }
+    .principal-col { width: 25%; text-align: right; font-family: Arial, Helvetica, sans-serif; }
+    .principal-name { margin-top: 5px; font-weight: bold; font-size: 13px; }
+    .principal-title { font-size: 13px; text-align: right; }
+    .contact-col { width: 100%; font-size: 5px; }
+    .contact-lines { display: flex; flex-direction: column; gap: 2px; }
+    .contact-line { white-space: nowrap; font-size: 12px; }
+    .codes-row { padding-top: 5px; font-size: 11px; color: #232323; border-top: 1px solid black; width: 100%; }
+    .codes-row span { margin-right: 8px; }
+
+    @media print {
+      .container { width: 100%; max-width: none; margin: 0; padding: 0; }
+      .header img { width: 100px; }
+      .principal-row { page-break-inside: avoid; }
+    }
+
+    .notice-title{ text-align:center; font-size: 30px; font-weight:bold; margin-top:30px; color:black; }
+    .content { margin-left: 80px; margin-right: 40px; padding: 10px; font-size: 16px; orphans: 3; widows: 3; }
+    
+    .section { margin-top: 14px; page-break-inside: avoid; orphans: 3; widows: 3; }
+    
+    .section.page-break-before {
+      page-break-before: always;
+      margin-top: 0;
+      padding-top: 15px;
+    }
+
+    .section.page-break-before::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: #2c377d;
+      margin-bottom: 10px;
+    }
+    
+    .signatures { margin-top: 120px; display: flex; justify-content: space-around; page-break-inside: avoid; }
+    .signature { text-align: center; margin: 0 20px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 14px; page-break-inside: auto; orphans: 3; widows: 3; }
+    th, td { border: 1px solid black; padding: 8px; text-align: left; }
+    thead th { background: #f2f2f2; }
+    img { page-break-inside: avoid; }
+    
+    .large-content-section {
+      page-break-inside: auto;
+      orphans: 2;
+      widows: 2;
+    }
+    
+    tbody tr { page-break-inside: avoid; page-break-after: auto; }
+
+    .ending-footer {
+      width: 100%;
+      padding: 5px 0;
+      text-align: center;
+      font-size: 12px;
+      border-top: 1px solid black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      font-family: 'Tafel Sans Pro', Arial, sans-serif;
+    }
+
+    .footer-ph, .footer-link {
+      border-left: 1px solid black;
+      padding-left: 10px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+        <img src="frontend/src/assets/images/noticeheaderlogo.png" alt="Garware College Logo">
+        <div class="subtitle">MAHARASHTRA EDUCATION SOCIETY'S</div>
+        <div class="main-title">GARWARE COLLEGE OF COMMERCE (AUTONOMOUS)</div>
+        <div class="empowering">Empowering generations since 1967...</div>
+    </div>
+    <div class="info-bar">
+        NAAC Re-Accredited 'A' Grade (CGPA 3.45)
+        <span class="award">Best College Award by Savitribai Phule Pune University</span>
+    </div>
+    <div class="principal-row">
+        <div class="principal-col">
+            <div class="principal-name">Dr. Kishor S. Desarda</div>
+            <div class="principal-title">Principal</div>
+        </div>
+        <div class="contact-col">
+            <div class="contact-lines">
+                <div class="contact-line">
+                    <strong>Karve Road, Deccan Gymkhana, Pune - 411004, (India)</strong>
+                    &nbsp;&nbsp; Phone : Office 020-41038300 &nbsp;
+                    Principal : 020-41038301
+                </div>
+                <div class="contact-line">
+                    E-mail: Office : office.gcc@mespune.in &nbsp;
+                    Principal : ksd.gcc@mespune.in &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Website : www.gcc.mespune.in
+                </div>
+                <div class="codes-row">
+                    <span>[Univ. I.D. No.: PU/PN/C/018/(1967)]</span> • 
+                    <span>AISHE Code: C-41864</span> • 
+                    <span>U-DISE Code: 27251401523</span> • 
+                    <span>Jr. College Code: 11.11.002</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+  <table style="width:100%; margin-top: 20px; border: none !important; page-break-inside: avoid;">
+    <tr>
+      <td style="text-align:right; font-size:15px; border: none !important;">
+        Date: {{ notice.notice_date }}
+      </td>
+    </tr>
+  </table>
+
+  {% if notice.target_departments and notice.target_departments|length > 0 and notice.target_groups and notice.target_groups|length > 0 %}
+    <h1 class="notice-title" style="page-break-inside: avoid;">
+    {{ notice.target_groups|join:"/ " }}   {{ notice.target_departments|join:"/ " }}
+    </h1>
+  {% endif %}
+
+
+
+
+  {% if notice.ordered_blocks and notice.ordered_blocks|length > 0 %}
+    <div class="content large-content-section">
+      {% for b in notice.ordered_blocks %}
+        {% if b.type == 'introduction' and b.text %}
+          <div class="section" style="margin-left: 60px;">
+            <p>{{ b.text }}</p>
+          </div>
+        {% elif b.type == 'section' and b.title or b.text or b.list %}
+          <div class="section">
+            {% if b.title %}<p><strong>{{ b.title }}</strong></p>{% endif %}
+            {% if b.text %}<p>{{ b.text }}</p>{% endif %}
+            {% if b.list and b.list|length > 0 %}
+              <ol style="margin-left: 20px;">
+                {% for item in b.list %}
+                  <li>{{ item }}</li>
+                {% endfor %}
+              </ol>
+            {% endif %}
+          </div>
+        {% elif b.type == 'table' and b.rows and b.rows|length > 0 %}
+          <table class="large-content-section">
+            <thead>
+              <tr>
+                {% for header in b.rows.0 %}
+                  <th>{{ header|title }}</th>
+                {% endfor %}
+              </tr>
+            </thead>
+            <tbody>
+              {% for row in b.rows|slice:'1:' %}
+                <tr>
+                  {% for cell in row %}
+                    <td>{{ cell }}</td>
+                  {% endfor %}
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        {% elif b.type == 'instructions' and b.items and b.items|length > 0 %}
+          <div class="section" style="margin-left: 70px;">
+            <p><strong>Instructions:</strong></p>
+            <ol style="margin-left: 20px;">
+              {% for instruction in b.items %}
+                <li>{{ instruction }}</li>
+              {% endfor %}
+            </ol>
+          </div>
+        {% elif b.type == 'images' and b.items and b.items|length > 0 %}
+          <div class="content" style="margin-top: 40px; display: flex; justify-content: space-around; page-break-inside: avoid;">
+          {% for image in b.items %}
+              <div style="text-align: center;">
+                <img src="{% if image.url|slice:':4' == 'http' %}{{ image.url }}{% else %}http://localhost:8000{{ image.url }}{% endif %}" alt="Uploaded Image" style="width: 120px; height: 120px;" />
+                {% if image.caption %}
+                  <p style="margin-top: 8px; font-size: 14px;">{{ image.caption }}</p>
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+        {% elif b.type == 'ending' and b.text %}
+          <div class="section" style="margin-left: 70px;">
+            <p>{{ b.text }}</p>
+          </div>
+        {% elif b.type == 'signatures' and b.items and b.items|length > 0 %}
+          <div class="signatures">
+            {% for sig in b.items %}
+              <div class="signature">
+                <p style="font-weight: bold; color: black;">(
+                  {{ sig.person_name }}
+                )</p>
+                <p style="font-size: 13px; color: black;">
+                  {% if sig.custom_role %}{{ sig.custom_role }}{% else %}{{ sig.role }}{% endif %}
+                </p>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="content large-content-section">
+    {% if notice.introduction_content %}
+      <div style="margin-left: 60px;">
+        <div class="section">
+          <p>{{ notice.introduction_content }}</p>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if notice.sections %}
+        {% for section in notice.sections %}
+          <div class="section">
+            {% if section.title %}<p><strong>{{ section.title }}</strong></p>{% endif %}
+            {% if section.text %}<p>{{ section.text }}</p>{% endif %}
+            {% if section.list and section.list|length > 0 %}
+              <ol style="margin-left: 20px;">
+                {% for item in section.list %}
+                  <li>{{ item }}</li>
+                {% endfor %}
+              </ol>
+            {% endif %}
+            {% if section.table and section.table|length > 0 %}
+              <table>
+                <thead>
+                  <tr>
+                    {% for header in section.table.0 %}
+                      <th>{{ header|title }}</th>
+                    {% endfor %}
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for row in section.table|slice:"1:" %}
+                    <tr>
+                      {% for cell in row %}
+                        <td>{{ cell }}</td>
+                      {% endfor %}
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            {% endif %}
+          </div>
+        {% endfor %}
+    {% endif %}
+
+    {% if notice.table and notice.table|length > 0 %}
+        <table>
+          <thead>
+            <tr>
+              {% for header in notice.table.0 %}
+                <th>{{ header|title }}</th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in notice.table|slice:"1:" %}
+              <tr>
+                {% for cell in row %}
+                  <td>{{ cell }}</td>
+                {% endfor %}
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+    {% endif %}
+
+    {% if notice.tables and notice.tables|length > 0 %}
+        {% for t in notice.tables %}
+          {% if t.title %}<p><strong>{{ t.title }}</strong></p>{% endif %}
+          {% if t.rows and t.rows|length > 0 %}
+            <table>
+              <thead>
+                <tr>
+                  {% for header in t.rows.0 %}
+                    <th>{{ header|title }}</th>
+                  {% endfor %}
+                </tr>
+              </thead>
+              <tbody>
+                {% for row in t.rows|slice:"1:" %}
+                  <tr>
+                    {% for cell in row %}
+                      <td>{{ cell }}</td>
+                    {% endfor %}
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          {% endif %}
+        {% endfor %}
+    {% endif %}
+
+    {% if notice.instructions and notice.instructions|length > 0 %}
+      <div class="section" style="margin-left: 70px;">
+        <p><strong>Instructions:</strong></p>
+        <ol style="margin-left: 20px;">
+          {% for instruction in notice.instructions %}
+            <li>{{ instruction }}</li>
+          {% endfor %}
+        </ol>
+      </div>
+    {% endif %}
+
+    {% if notice.ending_content %}
+      <div class="section" style="margin-left: 70px;">
+        <p>{{ notice.ending_content }}</p>
+      </div>
+    {% endif %}
+
+    {% if notice.plain_html %}
+      <div style="page-break-inside: auto;">
+        {{ notice.plain_html|safe }}
+      </div>
+    {% endif %}
+
+    {% if notice.images and notice.images|length > 0 %}
+      <div style="margin-top: 40px; display: flex; justify-content: space-around; page-break-inside: avoid;">
+        {% for image in notice.images %}
+          <div style="text-align: center;">
+            <img src="{% if image.url|slice:':4' == 'http' %}{{ image.url }}{% else %}http://localhost:8000{{ image.url }}{% endif %}" alt="Uploaded Image" style="width: 120px; height: 120px;" />
+            {% if image.caption %}
+              <p style="margin-top: 8px; font-size: 14px;">{{ image.caption }}</p>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if notice.signatures and notice.signatures|length > 0 %}
+      <div class="signatures">
+        {% for sig in notice.signatures %}
+          <div class="signature">
+            <p style="font-weight: bold; color: black;">(
+              {{ sig.person_name }}
+            )</p>
+            <p style="font-size: 13px; color: black;">
+              {% if sig.custom_role %}{{ sig.custom_role }}{% else %}{{ sig.role }}{% endif %}
+            </p>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+    </div>
+  {% endif %}
+
+  {% if notice.content_data.apply_footer %}
+  <div class="ending-footer">
+    <div class="head-office">
+      <span>Head Office:'MES Bhavan',Sadashiv Peth, Pune-411030, Maharashtra, India</span>
+    </div>
+    <div class="footer-ph">
+      <span>Ph.: +91-020-41038100</span>
+    </div>
+    <div class="footer-link">
+      <span>https://mespune.in</span>
+    </div>
+  </div>
+{% endif %}
+
+</body>
+</html>

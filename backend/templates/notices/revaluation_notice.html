@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Revaluation Results Notice</title>
+  <style>
+    @page { size: A4 landscape; margin: 0.2cm; }
+    * { padding: 0; margin: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; font-size: 14px; }
+    h1, h2 { text-align: center; margin: 5px 0; }
+
+    .container { width: 100%; margin: 0 auto; background: #ffffff; padding: 0; }
+    .header { text-align: center; padding: 0; }
+    .header img { width: 110px; height: auto; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto; }
+    .main-title { font-family: "Futura No. 2 Std Bold (D)", "Arial Black", Helvetica, sans-serif; font-size: 22px; font-weight: bold; color: #2c377d; text-transform: uppercase; letter-spacing: 0.5px; }
+    .subtitle { font-family: "Times New Roman", Times, serif; font-weight: bold; font-size: 16px; color: #2c377d; text-transform: uppercase; }
+    .empowering { font-family: "Times New Roman", Times, serif; font-style: italic; font-size: 17px; color: #ffbc13; }
+    .info-bar { font-family: "Heldustry Std Bold", "Times New Roman", serif; font-size: 14px; font-weight: bold; color: #2c377d; padding: 9px 0; display: flex; justify-content: center; align-items: center; width: 100%; }
+    .award { font-family: "Heldustry Std Bold", "Times New Roman", serif; font-weight: bold; margin-left:40px; }
+
+    .principal-row { display: flex; gap: 10px; align-items: flex-start; border-top: 2px solid black; border-bottom: 2px solid black; padding: 5px 0; width: 100%; box-sizing: border-box; }
+    .principal-col { width: 25%; text-align: right; font-family: Arial, Helvetica, sans-serif; }
+    .principal-name { margin-top: 5px; font-weight: bold; font-size: 13px; }
+    .principal-title { font-size: 13px; font-weight: bold; text-align: right; }
+    .contact-col { width: 100%; font-size: 5px; }
+    .contact-lines { display: flex; flex-direction: column; gap: 2px; }
+    .contact-line { white-space: nowrap; font-size: 12px; }
+    .codes-row { padding-top: 5px; font-size: 11px; color: #232323; border-top: 1px solid black; width: 100%; }
+    .codes-row span { margin-right: 8px; }
+
+    @media print {
+      .container { width: 100%; max-width: none; margin: 0; padding: 0; }
+      .header img { width: 100px; }
+      .principal-row { page-break-inside: avoid; }
+      .content { page-break-inside: avoid; }
+    }
+
+    .notice-title{ text-align:center; font-size: 18px; font-weight:bold; margin-top:20px; color:black; }
+    .content { margin-left: 80px; margin-right: 40px; padding: 10px; font-size: 16px; }
+    .section { margin-top: 14px; }
+    .signatures { margin-top: 120px; display: flex; justify-content: space-around; page-break-inside: avoid; }
+    .signature { text-align: center; margin: 0 20px; }
+  </style>
+</head>
+<body>
+
+  {% if notice.result_title %}
+    <h2 style="font-size: 18px; width: 100%;margin:auto;">MES Garware College of Commerce (Autonomous) Pune. - 04</h2>
+    <h2 style="font-size: 18px; width: 100%;margin:auto;">{{ notice.result_title }}</h2>
+  {% endif %}
+
+  {% if notice.introduction_content %}
+    <div class="content" style="margin-left: 60px;">
+      <div class="section">
+        <p>{{ notice.introduction_content }}</p>
+      </div>
+    </div>
+  {% endif %}
+
+  {% if notice.revaluation_table %}
+    <div class="section" style="margin-left: 70px; margin-right: 40px;">
+      <p><strong>Revaluation Results:</strong></p>
+
+      {% if notice.notice_type == "revaluation" %}
+        <!-- Predefined Revaluation Table -->
+        <table style="width: 95%; border-collapse: collapse; margin:auto; margin-top: 10px; font-size: 14px;">
+          <thead>
+            <tr>
+              <th style="border: 1px solid #000; padding: 8px; text-align: center; font-weight: bold; width: 3%;">Sr No</th>
+              <th style="border: 1px solid #000; padding: 8px; text-align: center; font-weight: bold; width: 18%;">Name of Students</th>
+              <th style=  "border: 1px solid #000; padding: 8px; text-align: center; font-weight: bold; width: 10%;">Class</th>
+              <th style="border: 1px solid #000; padding: 8px; text-align: center; font-weight: bold; width: 5%;">Sem</th>
+              <th style="border: 1px solid #000; padding: 8px; text-align: center; font-weight: bold; width: 5%;">Seat No</th>
+              <th style="border: 1px solid #000; padding: 8px; text-align: center; font-weight: bold; width: 8%;">Subject Code</th>
+              <th style="border: 1px solid #000; padding: 8px; text-align: center; font-weight: bold; width: 15%;">Subject</th>
+              <th colspan="3" style="border: 1px solid #000; padding: 8px; text-align: center; font-weight: bold;">Result of Verification of Mark</th>
+              <th style="border: 1px solid #000; padding: 8px; text-align: center; font-weight: bold; width: 10%;">Student Signature Received Result</th>
+            </tr>
+            <tr>
+              <th colspan="7" style="border: none;"></th>
+              <th style="border: 1px solid #000; padding: 8px; text-align: center; font-weight: bold;">Previous Marks</th>
+              <th style="border: 1px solid #000; padding: 8px; text-align: center; font-weight: bold;">Marks after Revaluation</th>
+              <th style="border: 1px solid #000; padding: 8px; text-align: center; font-weight: bold;">Result of the Revaluation</th>
+              <th style="border: none;"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {% for row in notice.revaluation_table %}
+              <tr>
+                {% for cell in row %}
+                  <td style="border: 1px solid #000; padding: 8px; text-align: center;">{{ cell }}</td>
+                {% endfor %}
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <!-- Custom Table (Dynamic) -->
+        <table style="width: 95%; border-collapse: collapse; margin:auto; margin-top: 10px; font-size: 14px;">
+          <tbody>
+            {% for row in notice.revaluation_table %}
+              <tr>
+                {% for cell in row %}
+                  <td style="border: 1px solid #000; padding: 8px; text-align: center;">{{ cell }}</td>
+                {% endfor %}
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  {% if notice.instructions %}
+    <div class="section" style="margin-left: 70px;">
+      <p><strong>Instructions:</strong></p>
+      <ol style="margin-left: 20px;">
+        {% for instruction in notice.instructions %}
+          <li>{{ instruction }}</li>
+        {% endfor %}
+      </ol>
+    </div>
+  {% endif %}
+
+  {% if notice.ending_content %}
+    <div class="section" style="margin-left: 70px;">
+      <p>{{ notice.ending_content }}</p>
+    </div>
+  {% endif %}
+
+  {% if notice.signatures %}
+    <div class="signatures">
+      {% for sig in notice.signatures %}
+        <div class="signature">
+          <p style="font-weight: bold; color: black;">(
+            {% if sig.person_name %}{{ sig.person_name }}{% else %}{{ sig.person }}{% endif %}
+          )</p>
+          <p style="font-size: 13px; color: black;">
+            {% if sig.custom_role %}{{ sig.custom_role }}{% else %}{{ sig.role }}{% endif %}
+          </p>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+</body>
+</html>

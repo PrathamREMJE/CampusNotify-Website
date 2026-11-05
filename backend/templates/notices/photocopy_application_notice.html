@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Photocopy Application Notice</title>
+  <style>
+    @page { size: A4; margin: 0.2cm; }
+    * { padding: 0; margin: 0; box-sizing: border-box; }
+    body { font-family: Arial, 'Segoe UI', Tahoma, sans-serif; font-size: 14px; }
+    
+    h1, h2 { text-align: center; margin: 5px 0; }
+
+    .container { width: 100%; margin: 0 auto; background: #ffffff; padding: 0; }
+    .header { text-align: center; padding: 0; }
+    .header img { width: 110px; height: auto; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto; }
+    .main-title { color: #2c377d; font-size: 20px; font-weight: bold; /* letter-spacing: 1.5px; */ }
+    .subtitle { color: #2c377d; font-size: 16px; font-weight: 600; margin-bottom: 5px; font-family: 'Tafel Sans Pro', Arial, sans-serif; }
+    .empowering { font-size: 17px; font-style: italic; color: #ffbc13; /margin-bottom: 7px;/ margin-top: 3px; padding: 5px; }
+    .info-bar { font-weight: 600; /* background: #f1f5fd; */ color: #2c377d; padding: 9px 0; font-size: 14px; display: flex; justify-content: center; align-items: center; width: 100%; }
+    .award { margin-left:40px; }
+
+    .principal-row { display: flex; gap: 10px; align-items: flex-start; border-top: 2px solid black; border-bottom: 2px solid black; padding: 5px 0; width: 100%; box-sizing: border-box; }
+    .principal-col { width: 25%; text-align: right; font-family: Arial, Helvetica, sans-serif; }
+    .principal-name { margin-top: 5px; font-weight: bold; font-size: 13px; }
+    .principal-title { font-size: 13px; text-align: right; }
+    .contact-col { width: 100%; font-size: 5px; }
+    .contact-lines { display: flex; flex-direction: column; gap: 2px; }
+    .contact-line { white-space: nowrap; font-size: 12px; }
+    .codes-row { padding-top: 5px; font-size: 11px; color: #232323; border-top: 1px solid black; width: 100%; }
+    .codes-row span { margin-right: 8px; }
+
+    @media print {
+      .container { width: 100%; max-width: none; margin: 0; padding: 0; }
+      .header img { width: 100px; }
+      .principal-row { page-break-inside: avoid; }
+      .content { page-break-inside: avoid; }
+    }
+
+    .notice-title{ text-align:center; font-size: 22px; font-weight:bold; margin-top:20px; color:black; }
+    .content { margin-left: 80px; margin-right: 40px; padding: 10px; font-size: 16px; line-height: 1.6; }
+    .section { margin-top: 14px; }
+    .signatures { margin-top: 120px; display: flex; justify-content: space-around; page-break-inside: avoid; }
+    .signature { text-align: center; margin: 0 20px; }
+    .fees-table { margin-left: 10px; margin-top: 10px; font-size: 16px;}
+    .fees-table td {padding:1px;}
+    .fees-table th { padding:1px;}
+    .bold-underline { font-weight: bold; text-decoration: underline; }
+
+    
+        .ending-footer {
+      width: 100%;
+      padding: 5px 0;
+      text-align: center;
+      font-size: 12px;
+      border-top: 1px solid black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      font-family: 'Tafel Sans Pro', Arial, sans-serif;
+      position: fixed;
+      bottom: 10px;
+      left: 0;
+      background: #fff;
+    }
+
+    .footer-ph, .footer-link {
+      border-left: 1px solid black;
+      padding-left: 10px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="frontend/src/assets/images/noticeheaderlogo.png" alt="Garware College Logo" />
+      <div class="subtitle">MAHARASHTRA EDUCATION SOCIETY'S</div>
+      <div class="main-title">GARWARE COLLEGE OF COMMERCE (AUTONOMOUS)</div>
+      <div class="empowering">Empowering generations since 1967...</div>
+    </div>
+    <div class="info-bar">
+      NAAC Re-Accredited ‘A’ Grade (CGPA 3.45)
+      <span class="award">Best College Award by Savitribai Phule Pune University</span>
+    </div>
+    <div class="principal-row">
+      <div class="principal-col">
+        <div class="principal-name">Dr. Kishor S. Desarda</div>
+        <div class="principal-title">Principal</div>
+      </div>
+      <div class="contact-col">
+        <div class="contact-lines">
+          <div class="contact-line">
+            <strong>Karve Road, Deccan Gymkhana, Pune - 411004, (India)</strong>
+            &nbsp;&nbsp; Phone : Office 020-41038300 &nbsp; Principal : 020-41038301
+          </div>
+          <div class="contact-line">
+            E-mail: Office : office.gcc@mespune.in &nbsp; Principal : ksd.gcc@mespune.in &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Website : www.gcc.mespune.in
+          </div>
+          <div class="codes-row">
+            <span>[Univ. I.D. No.: PU/PN/C/018/(1967)]</span> • 
+            <span>AISHE Code: C-41864</span> • 
+            <span>U-DISE Code: 27251401523</span> • 
+            <span>Jr. College Code: 11.11.002</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Date -->
+  <table style="width:100%; margin-top: 20px; border: none !important;">
+    <tr>
+      <td style="text-align:right; font-size:15px; border: none !important;">
+        Date: {{ notice.notice_date }}
+      </td>
+    </tr>
+  </table>
+
+  <!-- Notice Title -->
+  <h1 class="notice-title">NOTICE</h1>
+  <h1 class="notice-title">{{ notice.title }}</h1>
+  <!-- Heading -->
+   
+
+  <!-- Main Content -->
+  <div class="content">
+    {% if notice.mode == "custom" %}
+      <!-- Custom Mode Content -->
+      {% if notice.introduction_content %}
+      <p style="font-size: 14px;">{{ notice.introduction_content }}</p>
+      {% endif %}
+
+      {% if notice.steps_title %}
+      <div class="section">
+        <p style="font-size: 14px;"><strong>{{ notice.steps_title }}</strong></p>
+      </div>
+      {% endif %}
+
+      {% if notice.steps %}
+      <div class="section">
+        <ol style="margin-left: 25px; margin-top: 5px;font-size: 14px;">
+          {% for step in notice.steps %}
+            <li>{{ step }}</li>
+          {% endfor %}
+        </ol>
+      </div>
+      {% endif %}
+
+      {% if notice.instructions %}
+      <div class="section">
+        <p style="font-size: 14px;"><strong>Instructions:</strong></p>
+        <ul style="margin-left: 25px; margin-top: 5px;font-size: 14px;">
+          {% for instruction in notice.instructions %}
+            <li>{{ instruction }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      {% if notice.fees %}
+      <div class="section">
+        <table class="fees-table" width="80%">
+          {% for fee in notice.fees %}
+          <tr>
+            <td style="font-size: 14px;">{{ fee.heading }}</td>
+            <td style="font-size: 14px;">:&nbsp;{{ fee.amount }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+      {% endif %}
+
+      {% if notice.note %}
+      <div class="section">
+        <p style="font-size: 14px;"> {{ notice.note }}</p>
+      </div>
+      {% endif %}
+
+      {% if notice.ending_content %}
+      <p style="font-size: 14px;">{{ notice.ending_content }}</p>
+      {% endif %}
+    {% else %}
+      <!-- Predefined Mode Content -->
+      <p style="font-size: 14px;">
+        Students who wish to apply for photocopy of Answer Sheet can apply
+        from <strong>{{ notice.application_start_date }}</strong> to
+        <strong>{{ notice.application_end_date }}</strong>.
+      </p>
+
+      <p style="font-size: 14px;">
+        The students should also attach photocopy of their Online Result Copy while applying.
+      </p>
+
+      {% if notice.steps %}
+      <div class="section">
+        <p style="font-size: 14px;">Students should follow following steps:</p>
+        <ol style="margin-left: 25px; margin-top: 5px;font-size: 14px;">
+          {% for step in notice.steps %}
+            <li>{{ step }}</li>
+          {% endfor %}
+        </ol>
+      </div>
+      {% endif %}
+
+      <div>
+        <strong class="bold-underline">After submission of online application of Photocopy, student should visit Exam Dept to complete the process</strong>
+      </div>
+
+      <div>
+        <strong>Students are also instructed not to pay the fees before visiting the Exam Dept.</strong>
+      </div>
+
+      {% if notice.fees %}
+      <div class="section">
+        <table class="fees-table" width="80%">
+          <tr>
+            <td style="font-size: 14px;">Fees for Photocopy Application Processing Form</td>
+            <td style="font-size: 14px;">:&nbsp;{{ notice.fees.application_processing_fee }}</td>
+          </tr>
+          <tr>
+            <td style="font-size: 14px;"> Fees for Photocopy of Answer Sheet per Subject</td>
+            <td style="font-size: 14px;">:&nbsp;{{ notice.fees.photocopy_per_subject_fee }}</td>
+          </tr>
+        </table>
+      </div>
+      {% endif %}
+    {% endif %}
+  </div>
+
+  <div style="width:80%;margin:auto;padding:10px">
+      <h4 style="font-weight:bold;text-decoration:underline;margin-bottom:10px">Please Note:</h4>
+      <span>Students who wish to apply for Revaluation of any subject / paper should compulsorily apply for the Photocopy of Answer Sheet of that subject / paper.</span>
+  </div>
+
+  <!-- Signatures -->
+  {% if notice.signatures %}
+  <div class="signatures">
+    {% for sig in notice.signatures %}
+      <div class="signature">
+        <p><strong>{{ sig.person_name|default:"" }}</strong></p>
+        <p>{{ sig.custom_role|default:sig.role }}</p>
+      </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% if notice.apply_footer %}
+  <div class="ending-footer">
+    <div class="head-office">
+      <span>Head Office:'MES Bhavan',Sadashiv Peth, Pune-411030, Maharashtra, India</span>
+    </div>
+    <div class="footer-ph">
+      <span>Ph.: +91-020-41038100</span>
+    </div>
+    <div class="footer-link">
+      <span>https://mespune.in</span>
+    </div>
+  </div>
+  {% endif %}
+
+</body>
+</html>

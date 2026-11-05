@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Class Timetable</title>
+  <style>
+    @page { size: A4; margin: 1.2cm; }
+    * { box-sizing: border-box; }
+    body { font-family: "Times New Roman", Times, serif; font-size: 12pt; color: #000; }
+    h1, h2, h3, h4, h5, h6, p, ul, ol, li, th, td { font-family: "Times New Roman", Times, serif; }
+    h1, h2, h3 { font-weight: bold; }
+    em, i { font-style: italic; }
+    .center { text-align: center; }
+    h1, h2 { margin: 4px 0; font-weight: bold; }
+
+    table { width: 100%; border-collapse: collapse; margin-top: 14px; }
+    th, td { border: 1px solid #000; padding: 6px; text-align: center; vertical-align: middle; }
+
+    .top-title { font-size: 16px; font-weight: bold; }
+    .sub-title { font-size: 16px; font-weight: bold; }
+
+    .block { display: block; width: 100%; }
+
+    .signatures { margin-top: 40px; display: flex; justify-content: space-between; }
+    .sig { text-align: center; width: 45%; }
+    .sig-name { font-weight: bold; }
+    .sig-role { font-size: 13px; }
+
+    .caption-row td { border: 1px solid #000; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="center">
+    <div class="top-title">{{ notice.content_data.college_header|default:"MES Garware College of Commerce (Autonomous), Pune" }}</div>
+    <div class="sub-title">{{ notice.content_data.timetable_title }}</div>
+  </div>
+
+  <table>
+    {% if notice.content_data.semester_title %}
+    <tr class="caption-row">
+      <td colspan="8" class="center">{{ notice.content_data.semester_title }}</td>
+    </tr>
+    {% endif %}
+
+    {% if notice.timetable_table %}
+      {% for row in notice.timetable_table %}
+        {% if row.2 == "BREAK" or row.2 == "Break" %}
+          <tr>
+            <td>{{ row.0 }}</td>
+            <td>{{ row.1 }}</td>
+            <td colspan="6" style="background-color: #d3d3d3; font-weight: bold; text-align: center;">BREAK</td>
+          </tr>
+        {% else %}
+          <tr>
+            {% for cell in row %}
+              <td>{{ cell }}</td>
+            {% endfor %}
+          </tr>
+        {% endif %}
+      {% endfor %}
+    {% else %}
+      <tr>
+        <th>Timing</th>
+        <th>Lecture No</th>
+        <th>Mon</th>
+        <th>Tue</th>
+        <th>Wed</th>
+        <th>Thu</th>
+        <th>Fri</th>
+        <th>Sat</th>
+      </tr>
+      <tr>
+        <td colspan="8">No timetable data available.</td>
+      </tr>
+    {% endif %}
+  </table>
+
+  {% if notice.content_data.signatures %}
+  <div class="signatures">
+    {% for sig in notice.content_data.signatures %}
+      <div class="sig">
+        <div class="sig-name">
+          (
+          {% if sig.person_name %}{{ sig.person_name }}{% else %}{{ sig.person }}{% endif %}
+          )
+        </div>
+        <div class="sig-role">
+          {% if sig.custom_role %}{{ sig.custom_role }}{% else %}{{ sig.role }}{% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+</body>
+</html>

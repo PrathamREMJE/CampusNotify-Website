@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guest Lecture Notice</title>
+  <link rel="stylesheet" href="../../../../style.css">
+  <style>
+    @page {
+            size: A4;
+            margin: 0.2cm;
+            }
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, 'Segoe UI', Tahoma, sans-serif;
+      margin: 0;
+      padding: 0px;
+      font-size: 14px;
+      /line-height: 1.6;/
+      color: #333;
+      background: white;
+      box-sizing: border-box;
+    }
+    
+    h1 {
+      color: #003366;
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 30px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .container {
+            width: 100%;
+            /max-width: 800px;/
+            margin: 0 auto;
+            background: #ffffff ;
+            padding: 0;
+        }
+        .header {
+            text-align: center;
+            padding:0;
+        
+
+        }
+        .header img {
+            width: 110px;
+            height: auto;
+            margin-bottom: 10px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .main-title {
+            color: #2c377d;
+            
+            font-size: 20px;
+            font-weight: bold;
+            /* letter-spacing: 1.5px; */
+        }
+        .subtitle {
+            color: #2c377d;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-family: 'Tafel Sans Pro', Arial, sans-serif;
+
+        }
+        .empowering {
+            font-size: 17px;
+            font-style: italic;
+            color: #ffbc13;
+            /margin-bottom: 7px;/
+            margin-top: 3px;
+            padding: 5px;
+        }
+        .info-bar {
+            font-weight: 600;
+            /* background: #f1f5fd; */
+            color: #2c377d;
+            padding: 9px 0;
+            font-size: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        
+        }
+        .award {
+            margin-left:40px;
+        }
+        .principal-row {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            border-top: 2px solid black;
+            border-bottom: 2px solid black;
+            padding: 5px 0;
+            /font-size: 0.98em;/
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .principal-col {
+            width: 25%;
+            /* */
+            text-align: right;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .principal-name {
+            margin-top: 5px;
+            font-weight: bold;
+            font-size: 13px;
+        }
+        .principal-title {
+            font-size: 13px;
+        
+            text-align: right;
+        }
+        .contact-col {
+            width: 100%;
+            font-size: 5px;
+
+        }
+        /* Ensure spacing between lines in contact-col */
+        .contact-lines {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .contact-line {
+            white-space: nowrap;
+            font-size: 12px;
+        }
+        .codes-row {
+            padding-top: 5px;   
+            font-size: 11px;
+            color: #232323;
+            border-top: 1px solid black;
+            width: 100%;
+        }
+        .codes-row span {
+            margin-right: 8px;
+        }
+        /* PDF-specific styles */
+        @media print {
+            .container {
+                width: 100%;
+                max-width: none;
+                margin: 0;
+                padding: 0;
+            }
+            .header img {
+                width: 100px;
+            }
+            .principal-row {
+                page-break-inside: avoid;
+            }
+            .content {
+                page-break-inside: avoid;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .container {
+                width: 99%;
+            }
+        }
+        @media (max-width: 700px) {
+            .principal-row {
+                flex-direction: column;
+            }
+            .principal-col,
+            .contact-col {
+                width: 100%;
+            }
+            .award {
+                margin-left: 0;
+            }
+            .contact-line {
+                white-space: normal;
+            }
+        }
+
+    .notice-title{
+        text-align:center;
+        font-size: 30px;
+        font-weight:bold;
+        margin-top:30px;
+        color:black;
+    }
+    
+    .content {
+      /margin-top: 30px;/
+      /margin:auto;/
+      margin-left: 40px;
+      padding: 20px;
+      font-size: 16px;
+      /line-height: 1.1;/
+      box-sizing: border-box;
+      /border:2px solid black;/
+      width: 90%;
+    }
+    
+    .content p {
+      margin-left:40px;
+      padding: 10px;
+    }
+    
+    .content strong {
+      font-weight: bold;
+      color: #003366;
+    }
+    
+    .footer {
+      margin-top: 200px;
+      padding: 20px;
+      text-align: right;
+      font-size: 16px;
+      font-weight: bold;
+      color: #003366;
+      box-sizing: border-box;
+    }
+    
+    /* Ensure proper rendering */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      box-sizing: border-box;
+    }
+    
+    /* Fix for WeasyPrint rendering */
+    .container * {
+      box-sizing: border-box;
+    }
+
+    .ending-footer {
+        width: 100%;
+        padding: 5px 0;
+        text-align: center;
+        font-size: 12px;
+        border-top: 1px solid black;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+         font-family: 'Tafel Sans Pro', Arial, sans-serif;
+    }
+
+    .footer-ph, .footer-link{
+        border-left: 1px solid black;
+        padding-left: 10px;
+       
+    }
+
+  </style>
+</head>
+<body>
+   <div class="container">
+    <div class="header">
+        <img src="frontend/src/assets/images/noticeheaderlogo.png" alt="Garware College Logo">
+        <div class="subtitle">MAHARASHTRA EDUCATION SOCIETY'S</div>
+        <div class="main-title">GARWARE COLLEGE OF COMMERCE (AUTONOMOUS)</div>
+        <div class="empowering">Empowering generations since 1967...</div>
+    </div>
+    <div class="info-bar">
+        NAAC Re-Accredited 'A' Grade (CGPA 3.45)
+        <span class="award">Best College Award by Savitribai Phule Pune University</span>
+    </div>
+    <div class="principal-row">
+        <div class="principal-col">
+            <div class="principal-name">Dr. Kishor S. Desarda</div>
+            <div class="principal-title">Principal</div>
+        </div>
+        <div class="contact-col">
+            <div class="contact-lines">
+                <div class="contact-line">
+                    <strong>Karve Road, Deccan Gymkhana, Pune - 411004, (India)</strong>
+                    &nbsp;&nbsp; Phone : Office 020-41038300 &nbsp;
+                    Principal : 020-41038301
+                </div>
+                <div class="contact-line">
+                    E-mail: Office : office.gcc@mespune.in &nbsp;
+                    Principal : ksd.gcc@mespune.in &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Website : www.gcc.mespune.in
+                </div>
+                <div class="codes-row">
+                    <span>[Univ. I.D. No.: PU/PN/C/018/(1967)]</span> • 
+                    <span>AISHE Code: C-41864</span> • 
+                    <span>U-DISE Code: 27251401523</span> • 
+                    <span>Jr. College Code: 11.11.002</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="ending-footer">
+    <div class="head-office">
+        <span>Head Office:'MES Bhavan',Sadashiv Peth, Pune-411030, Maharashtra, India</span>
+    </div>
+    <div class="footer-ph">
+        <span>Ph.: +91-020-41038100</span>
+    </div>
+    <div class="footer-link">
+        <span>https://mespune.in</span>
+    </div>
+</div>
+
+
+</body>
+</html>

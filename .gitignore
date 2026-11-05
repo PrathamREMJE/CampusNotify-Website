@@ -1,0 +1,44 @@
+
+# Node.js dependencies
+node_modules/
+**/node_modules/
+
+# Build files
+dist/
+build/
+.vite/
+coverage/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Python virtual environments
+.venv/
+venv/
+env/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Django
+db.sqlite3
+*.log
+
+# IDE and editor
+.idea/
+.vscode/
+
+# Operating system
+.DS_Store
+Thumbs.db
+
+# Uploaded media and generated test files
+/media/
+/test_output.pdf
+# Backend uploaded media and generated files
+/backend/media/
+/backend/test_notice.pdf

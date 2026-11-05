@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../../Sem 5 Project/Project Sem 5 Notice Creator/style.css">
+    <style>
+        
+        body {
+            font-family: 'Tafel Sans Pro', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            /* border: 2px solid #283982;
+            margin: 20px auto; */
+            max-width: 900px;
+            background: #fff;
+        }
+        .header {
+            text-align: center;
+            padding-top: 25px;
+        }
+        .header img {
+            width: 110px;
+            margin-bottom: 10px;
+        }
+        .main-title {
+            color: #2c377d;
+
+            font-size: 24px;
+            font-family: Arial Black, Helvetica, sans-serif;
+            font-weight: 900;
+            /* letter-spacing: 1.5px; */
+        }
+        .subtitle {
+            color: #2c377d;
+            font-size: 1em;
+            font-weight: bold;
+            margin-bottom: 7px;
+            font-family: "Times New Roman", Times, serif;
+
+        }
+        .empowering {
+            font-family: "Times New Roman", Times, serif;
+            font-style: italic;
+            font-size: 17px;
+            color: #ffbc13;
+            margin-bottom: 7px;
+            margin-top: 3px;
+        }
+        .info-bar {
+            font-family: "Times New Roman", Times, serif;
+            font-weight: bold;
+            /* background: #f1f5fd; */
+            color: #2c377d;
+            padding: 9px 0;
+            font-size: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+        .award {
+            font-family: "Times New Roman", Times, serif;
+            font-weight: bold;
+            margin-left:40px;
+        }
+        .principal-row {
+            display: flex;
+            gap: 10px;
+            /* justify-content: space-between; */
+            align-items: flex-start;
+            border-top: 2px solid black;
+            padding-top: 5px;
+            font-size: 0.98em;
+            border-bottom: 2px solid black;
+        }
+        .principal-col {
+            width: 19%;
+            /* border: 2px solid black; */
+            text-align: right;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .principal-name {
+            font-family: "Times New Roman", Times, serif;
+            font-weight: bold;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+        .principal-title {
+            font-family: "Times New Roman", Times, serif;
+            font-weight: bold;
+            font-size: 13px;
+            text-align: right;
+        }
+        .contact-col {
+            width: 77%;
+            font-size: 12px;
+        }
+        /* Ensure spacing between lines in contact-col */
+        .contact-lines {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .contact-line {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 12px;
+            font-weight: normal;
+            white-space: nowrap;
+        }
+        .codes-row {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 12px;
+            font-weight: normal;
+            padding: 2px 5px 5px 0px;
+            color: #232323;
+        }
+        .codes-row span {
+            margin-right: 8px;
+        }
+        @media (max-width: 900px) {
+            .container {
+                width: 99%;
+            }
+        }
+        @media (max-width: 700px) {
+            .principal-row {
+                flex-direction: column;
+            }
+            .principal-col,
+            .contact-col {
+                width: 100%;
+            }
+            .award {
+                margin-left: 0;
+            }
+            .contact-line {
+                white-space: normal;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <img src="../../Sem 5 Project/Project Sem 5 Notice Creator/frontend/src/assets/images/noticeheaderlogo.png" alt="Garware College Logo">
+        <div class="subtitle">MAHARASHTRA EDUCATION SOCIETY'S</div>
+        <div class="main-title">GARWARE COLLEGE OF COMMERCE (AUTONOMOUS)</div>
+        <div class="empowering">Empowering generations since 1967...</div>
+    </div>
+    <div class="info-bar">
+        NAAC Re-Accredited ‘A’ Grade (CGPA 3.45)
+        <span class="award">Best College Award by Savitribai Phule Pune University</span>
+    </div>
+    <div class="principal-row">
+        <div class="principal-col">
+            <div class="principal-name">Dr. Kishor S. Desarda</div>
+            <div class="principal-title">Principal</div>
+        </div>
+        <div class="contact-col">
+            <div class="contact-lines">
+                <div class="contact-line">
+                    <strong>Karve Road, Deccan Gymkhana, Pune - 411004, (India)</strong>
+                    &nbsp;&nbsp; Phone : Office 020-41038300 &nbsp;
+                    Principal : 020-41038301
+                </div>
+                <div class="contact-line">
+                    E-mail: Office : office.gcc@mespune.in &nbsp;
+                    Principal : ksd.gcc@mespune.in &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Website : www.gcc.mespune.in
+                </div>
+                <div class="codes-row">
+                    <span>[Univ. I.D. No.: PU/PN/C/018/(1967)]</span> • 
+                    <span>AISHE Code: C-41864</span> • 
+                    <span>U-DISE Code: 27251401523</span> • 
+                    <span>Jr. College Code: 11.11.002</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
